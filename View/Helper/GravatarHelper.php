@@ -101,13 +101,13 @@ class GravatarHelper extends AppHelper {
 	}
 
 /**
- * Generate image URL
+ * Generate image GURL
  *
  * @param string $email Email address
  * @param string $options Array of options, keyed from default settings
  * @return string Gravatar Image URL
  */
-	public function url($email, $options = array()) {
+	public function gurl($email, $options = array()) {
 		$options = $this->__cleanOptions(array_merge($this->__default, $options));
 		$ext = $options['ext'];
 		$secure = $options['secure'];
