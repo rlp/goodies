@@ -67,12 +67,9 @@ class AutoJavascriptHelper extends AppHelper {
 
 		foreach ($files as $file) {
 			$file = $path . $file;
-			if ($theme && !empty($this->theme)) {
-				$includeFile = VIEWS . 'themed' . DS . $this->theme . DS . 'webroot' . DS . 'js' . DS . $file;
-			} else {
-				$includeFile = JS . $file;
-			}
-			if (file_exists($includeFile)) {
+			$themedFile = ROOT . DS . APP_DIR . DS . 'View' . DS . 'Themed' . DS . $this->theme . DS . WEBROOT_DIR . DS . 'js' . DS . $file;
+			$includeFile = WWW_ROOT . 'js' . DS . $file;
+			if (file_exists($includeFile) || file_exists($themedFile)) {
 				$file = str_replace('\\', '/', $file);
 				$this->Html->script($file, array('inline' => false));
 			}
